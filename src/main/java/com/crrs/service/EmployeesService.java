@@ -18,7 +18,13 @@ public class EmployeesService {
         return employeesRepository.findAll();
     }
 
-//    public User saveUser(User user) {
+    public Employees saveUser(Employees user) {
+        return employeesRepository.save(user);
+    }
+    
+//    public Employees deleteUser(Employees user) {
+//    	
+//    	
 //        return employeesRepository.save(user);
 //    }
 }

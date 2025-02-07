@@ -15,29 +15,4 @@ public class CashReceiptsReconciliationSystem {
 	public static void main(String[] args) {
 		SpringApplication.run(CashReceiptsReconciliationSystem.class, args);
 	}
-	
-    @Autowired
-    private EmployeesRepository employeesRepository;
-	
-	@Bean
-	public CommandLineRunner loadData() {
-		
-		return args ->{
-			
-			
-			Employees employees = new Employees();
-		
-			employees.setName("Varun");
-			
-			
-						
-			employeesRepository.save(employees);
-			
-			
-		};
-		
-		
-	}
-	
-
 }
