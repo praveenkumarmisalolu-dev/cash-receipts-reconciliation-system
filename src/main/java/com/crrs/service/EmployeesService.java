@@ -21,7 +21,7 @@ public class EmployeesService {
     private EmployeesRepository employeesRepository;
     
 
-    public List<Employees> getAllUsers() {
+    public List<Employees> getAllEmployees(){
         return employeesRepository.findAll();
     }
     
@@ -31,18 +31,18 @@ public class EmployeesService {
     }
     
 
-    public Employees saveUser(Employees user) {
+    public Employees saveEmployee(Employees user) {
         return employeesRepository.save(user);
     }
     
-    public void deleteUser(Long id) {
+    public void deleteEmployee(Long id) {
     	
-    	logger.info("deleted the user based on user id {} : "+ id);
+    	logger.info("deleted the employee based on user id {} : "+ id);
 
     	employeesRepository.deleteById(id); 
     }
     
-    public Employees updateProduct(Long id, Employees employeeDetails) {
+    public Employees updateEmployee(Long id, Employees employeeDetails) {
         return employeesRepository.findById(id).map(employee -> {
         	    employee.setFirstName(employeeDetails.getFirstName());
         	    employee.setLastName(employeeDetails.getLastName());
