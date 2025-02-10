@@ -54,16 +54,21 @@ public class EmployeesController {
     
     // Creating employee
     @GetMapping("/new")
-    public String createEmployee(@ModelAttribute Employees employee) {
-    	
-    	
-    	logger.info(" Adding the new employee {} ");
+    public String createEmployeeForm(Model model) {
+        model.addAttribute("employee", new Employees());
+        return "employee-form";
+    }
+    
+    
+    @PostMapping("/save")
+    public String saveEmployee(@ModelAttribute Employees employee) {
     	employeesService.saveEmployee(employee);
         return "redirect:/employees";
     }
     
+    
     // Update employee
-    @PutMapping("/edit/{id}")
+    @GetMapping("/edit/{id}")
     public String updateEmployees(@PathVariable Long id, Model model) {
         
     	model.addAttribute("employee", employeesService.getEmployeeById(id));
@@ -72,7 +77,7 @@ public class EmployeesController {
     
     
     // 	Deleting employee
-    @DeleteMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteEmployees(@PathVariable Long id) {
     	
     	logger.info(" Deleting the existing employee {} "+ id);

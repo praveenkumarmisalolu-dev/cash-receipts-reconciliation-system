@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Form</title>
+</head>
+<body>
+    <h2>Employee Form</h2>
+    <form th:action="@{/employees/save}" method="post" th:object="${employee}">
+        <input type="hidden" th:field="*{id}"/>
+        
+        <label>First Name:</label>
+        <input type="text" th:field="*{firstName}" required/><br/>
+
+        <label>Last Name:</label>
+        <input type="text" th:field="*{lastName}" required/><br/>
+
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required/><br/>
+
+        <label>Phone Number:</label>
+        <input type="text" th:field="*{phoneNumber}" required/><br/>
+
+        <label>Department:</label>
+        <input type="text" th:field="*{department}" required/><br/>
+
+        <label>Designation:</label>
+        <input type="text" th:field="*{designation}" required/><br/>
+
+        <label>Salary:</label>
+        <input type="number" th:field="*{salary}" required/><br/>
+		
+		<label>Date of Joining:</label>
+		<input type="date" th:field="*{dateOfJoining}" required/><br/>
+		
+		<label>Employee Code:</label>
+		<input type="text" th:field="*{employeeCode}" required/><br/>
+		
+		<label>Employee Type:</label>
+		<input type="text" th:field="*{employmentType}" required/><br/>
+		
+
+        <button type="submit">Save Employee</button>
+    </form>
+
+    <br/>
+    <a href="/employees">Back to Employee List</a>
+</body>
+</html>
