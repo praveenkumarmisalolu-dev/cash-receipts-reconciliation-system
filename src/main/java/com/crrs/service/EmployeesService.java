@@ -1,21 +1,19 @@
 package com.crrs.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crrs.controller.EmployeesController;
 import com.crrs.entity.Employees;
 import com.crrs.repository.EmployeesRepository;
 
 @Service
 public class EmployeesService {
 	
-	private static final Logger logger = LogManager.getLogger(EmployeesController.class);
+	private static final Logger logger = LogManager.getLogger(EmployeesService.class);
 	
     @Autowired
     private EmployeesRepository employeesRepository;
@@ -26,8 +24,8 @@ public class EmployeesService {
     }
     
     
-    public Optional<Employees> getEmployeeById(Long id) {
-        return employeesRepository.findById(id);
+    public Employees getEmployeeById(Long id) {
+        return employeesRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee not found"));
     }
     
 
